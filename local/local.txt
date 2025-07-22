@@ -9,8 +9,8 @@
 
     - source can be used to copy a file into the new file we are making 
     - content  can be used to incert information into a file
-    - content_base64 can be used for 
-    - sensitive_content can be used for 
+    - content_base64 can be used for secure transfer of special characters / emojis &%*, it coverts and sends, later we need to decode it, with base64 decode, then we will be able to see the information
+    - local_sensitive_content does not show the senstivie content in the terminal, we are able to see if it with cat 
 
 3. data source - only requirment is filename, rest all will be read only 
     - starts with data "local_file" "filecreation" {
