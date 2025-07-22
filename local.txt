@@ -1,14 +1,14 @@
 1. functions - direxits ( checks if the dir exit or not, if checked for a file it will thow error)
     example output "example_output_homedir" {
-  value = provider::local::direxists(pathexpand("~/.ssh"))
+  value = provider::local::direxists(pathexpand("~/.ssh")) ( in my case false)
     }
     
 2. reasources - filename and any one of this are required or will throw error
 
     content, source, content_base64, sensitive_content 
 
-    - content  can be used to incert information into a file
     - source can be used to copy a file into the new file we are making 
+    - content  can be used to incert information into a file
     - content_base64 can be used for 
     - sensitive_content can be used for 
 
