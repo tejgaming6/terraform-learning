@@ -1,4 +1,0 @@
-resource "local_file" "source_file_copy" {
-  filename = "copy1.txt"
-  source = "/workspaces/terraform-learning/learning/local.txt"
-}
