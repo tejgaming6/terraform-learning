@@ -7,3 +7,8 @@ variable "number" {
   type = number
   default = 123
 }
+
+variable "id" {
+  type    = string
+  default = 5876451515154
+}

@@ -1,0 +1,1 @@
+this info will be taken to the variable in content in first one
