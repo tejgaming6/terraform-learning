@@ -6,8 +6,8 @@
 variable "value" {
   type = number
   default = 15
-}*/
+}
 
 variable "multiple_id" {
   
-}
+} */

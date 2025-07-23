@@ -5,7 +5,7 @@
 resource "local_file" "Azurefiles" {
   filename = "random_id.txt"
   content = azurefilerandom_id.azureserver.hex
-}*/
+}
 
 resource "random_id" "ids" {
   byte_length = var.multiple_id
@@ -29,5 +29,5 @@ resource "local_file" "adding_ids4" {
 }
 resource "local_file" "adding_ids5" {
   filename = "id5.txt"
-  content = "4${random_id.ids.hex}"
-}
+  content = "4${random_id.ids.hex}" 
+} */
