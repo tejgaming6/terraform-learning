@@ -1,4 +1,4 @@
-/*resource "local_file" "content" {
+/* resource "local_file" "content" {
 filename = "test001.txt"
 content = var.content
 }
