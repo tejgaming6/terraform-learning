@@ -20,4 +20,4 @@ storage_account_type = "Standard_LRS"
 
 all_count = 2
 
-subscription_id = "55345a3a-788c-447f-8807-fc7a3771166b"
+# subscription_id = "xyz"

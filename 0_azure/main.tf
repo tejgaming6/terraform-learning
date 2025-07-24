@@ -1,4 +1,4 @@
-provider "azurerm" {
+/*provider "azurerm" {
   features {}
    subscription_id = var.subscription_id
 }
@@ -43,5 +43,5 @@ resource "azurerm_subnet" "subnet12" {
   resource_group_name  = var.rg
   virtual_network_name = "vnet12"
   address_prefixes     = ["10.2.2.0/24"] 
-}
+}*/
 
