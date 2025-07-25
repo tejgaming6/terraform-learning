@@ -1,11 +1,9 @@
-resource "random_pet" "my_new_petname" {
-  for_each = var.prefix
-  prefix = each.key
+/* resource "random_bytes" "bytes_object" {
+length = var.legnth_types["short"] 
 }
 
-resource "local_file" "pet" {
-  filename = "${each.key}boolpetname.txt"
-  for_each = var.prefix
-  content = random_pet.my_new_petname[each.key].id
-}
-
+resource "local_file" "inputfrombytes" {
+  filename = "object_random.txt"
+  file_permission = "600"
+  content = random_bytes.bytes_object.base64
+} */

@@ -1,7 +1,10 @@
-variable "prefix" {
-  type = set(string)
-  
-}
+/* variable "legnth_types" {
+  type = object({
+    short = number
+    medium = number
+    higher = number
+  })
+} */
 
 
 
