@@ -1,4 +1,12 @@
-/*variable "content" {
+/*variable "dir" {
+type = tuple([ string, string ])
+}
+
+variable "file" {
+type = tuple([ string, string ])
+}
+
+variable "content" {
 type = string 
 default = "this info will be taken to the variable in content in first one"
 }
@@ -13,3 +21,4 @@ variable "id" {
   default = 5876451515154
 }
 */
+
