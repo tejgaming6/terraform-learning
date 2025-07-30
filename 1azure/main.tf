@@ -1,4 +1,4 @@
-/*provider "azurerm" {
+provider "azurerm" {
   features {}
    subscription_id = var.subscription_id
 }
@@ -9,8 +9,9 @@ resource "azurerm_resource_group" "teja1_task" {
   location = var.location
 }
 
-resource "azurerm_virtual_network" "vnet11" {
-  name                = "vnet11"
+resource "azurerm_virtual_network" "vnet" {
+  name                = "${var.vnet}${count.index + 1}"
+  count               =  var.all_count
   address_space       = ["10.1.0.0/16"]
   location            = var.location
   resource_group_name = var.rg
@@ -18,8 +19,9 @@ resource "azurerm_virtual_network" "vnet11" {
   
 }
 
-resource "azurerm_virtual_network" "vnet12" {
-  name                = "vnet12"
+resource "azurerm_virtual_network" "vnet1" {
+  name                =  "${var.vnet}${count.index + 1}"
+  count = var.all_count
   address_space       = ["10.2.0.0/16"]
   location            = var.location
   resource_group_name = var.rg
@@ -27,21 +29,20 @@ resource "azurerm_virtual_network" "vnet12" {
   
 }
 
-resource "azurerm_subnet" "subnet11" {
-  name = "subnet11"
- # name                 = "${var.subnet}${count.index + 1}"
- # count                = var.all_count 
+resource "azurerm_subnet" "subnet" {
+  name                 = var.subnet
+  count = var.all_count
   resource_group_name  = var.rg
-  virtual_network_name = "vnet11"
+  virtual_network_name = azurerm_virtual_network.vnet[count.index].name
   address_prefixes     = ["10.1.2.0/24"] 
 }
 
-resource "azurerm_subnet" "subnet12" {
-  name = "subnet12"
- # name                 = "${var.subnet}${count.index + 1}"
- # count                = var.all_count 
+resource "azurerm_subnet" "subnet1" {
+
+  name                 = "${var.subnet}${count.index + 1}"
+  count                = var.all_count 
   resource_group_name  = var.rg
-  virtual_network_name = "vnet12"
+  virtual_network_name = azurerm_virtual_network.vnet1[count.index].name
   address_prefixes     = ["10.2.2.0/24"] 
-}*/
+}
 
