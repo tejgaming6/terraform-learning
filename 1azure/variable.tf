@@ -1,45 +1,52 @@
 # fixed should be same 
-variable "rg" {
-type = any
-}
-
-variable "location" {
-  type = any
-  }
-  # could be any name variables 
-
-  variable "vpn" {
-    type = any
-    }
-
-variable "nic" {
-    type = any
-    }
-
-variable "ip" {
-    type = any
-    }
-variable "ec" {
-    type = any
-    }
-variable "vnet" {
-    type = any
-    }
-variable "subnet" {
-    type = any
-    }
-variable "size" {
-    type = any
-    }
-                
-  variable "storage_account_type" {
-    type = any
-    }
-
- variable "all_count" {
-    type = number
-    }
 variable "subscription_id" {
   type = string
 }
 
+variable "rgname" {
+  type = list(string)
+}
+
+variable "rglocation" {
+  type = list(string)
+}
+
+variable "vmname" {
+  type = string
+}
+
+variable "count_all" {
+  type = number
+}
+
+variable "address_space" {
+  type = string
+}
+
+variable "subnet" {
+  type = string
+}
+
+variable "network_interface" {
+  type = string
+}
+
+variable "ipname" {
+  type = string
+}
+
+variable "linuxname" {
+  type = string
+}
+
+variable "size" {
+  type = string
+}
+
+variable "username" {
+  type = string
+}
+
+variable "publc_ip_name" {
+  type = string
+}

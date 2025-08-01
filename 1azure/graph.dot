@@ -1,0 +1,13 @@
+digraph G {
+  rankdir = "RL";
+  node [shape = rect, fontname = "sans-serif"];
+  "azurerm_linux_virtual_machine.LINUX" [label="azurerm_linux_virtual_machine.LINUX"];
+  "azurerm_network_interface.NIC" [label="azurerm_network_interface.NIC"];
+  "azurerm_resource_group.RGNAME" [label="azurerm_resource_group.RGNAME"];
+  "azurerm_subnet.SUBNET" [label="azurerm_subnet.SUBNET"];
+  "azurerm_virtual_network.VNET" [label="azurerm_virtual_network.VNET"];
+  "azurerm_linux_virtual_machine.LINUX" -> "azurerm_network_interface.NIC";
+  "azurerm_network_interface.NIC" -> "azurerm_subnet.SUBNET";
+  "azurerm_subnet.SUBNET" -> "azurerm_virtual_network.VNET";
+  "azurerm_virtual_network.VNET" -> "azurerm_resource_group.RGNAME";
+}
