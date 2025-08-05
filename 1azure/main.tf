@@ -1,10 +1,12 @@
+/* 
+
 provider "azurerm" {
   features {}
    subscription_id = var.subscription_id
 }
 
 resource "azurerm_resource_group" "RGNAME" {
-  name = var.rgname[0]
+  name = var.rgname[1]
   location = var.rglocation[0]
 }
 
@@ -49,7 +51,40 @@ ip_configuration {
   public_ip_address_id = azurerm_public_ip.PUBLICIP[count.index].id
 }
 }
+resource "azurerm_network_interface_security_group_association" "nic_nsg" {
+  count                     = var.count_all
+  network_interface_id      = azurerm_network_interface.NIC[count.index].id
+  network_security_group_id = azurerm_network_security_group.NSG[count.index].id
+}
+resource "azurerm_network_security_group" "NSG" {
+  count = var.count_all
+  name                = "${var.nsg}${count.index + 1}"
+  location            = azurerm_resource_group.RGNAME.location
+  resource_group_name = azurerm_resource_group.RGNAME.name
 
+  security_rule {
+    name                       = "ssh"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+  security_rule {
+    name                       = "http"
+    priority                   = 110
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "8080"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+}
 resource "azurerm_linux_virtual_machine" "LINUX" {
   count = var.count_all
   name = "${var.linuxname}${count.index + 1}"
@@ -61,7 +96,7 @@ resource "azurerm_linux_virtual_machine" "LINUX" {
   
   admin_ssh_key {
     username = var.username
-    public_key = file("~/.ssh/id_rsa.pub")
+    public_key = file("~/.ssh/azure_key.pub")
 
   }
 
@@ -76,6 +111,9 @@ resource "azurerm_linux_virtual_machine" "LINUX" {
     sku = "22_04-lts" # Plan ID
     version = "latest" 
   }
+  
+
 
 } 
 
+*/
